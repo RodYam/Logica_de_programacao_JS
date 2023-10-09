@@ -13,10 +13,21 @@ function exibirTextoNaTela(tag, texto) {
 }
 
 exibirTextoNaTela('h1', 'Jogo do número secreto');
-exibirTextoNaTela('p', 'Escolha um número entre 1 e 100');
+exibirTextoNaTela('p', 'Escolha um número entre 1 e 10');
 
 function verificarChute() {
-    console.log(numeroSecreto);
+    let chute = document.querySelector('input').value;
+    
+    if(chute == numeroSecreto) {
+        exibirTextoNaTela('h1', 'Acertou!');
+        exibirTextoNaTela('p', 'Você descobriu o número secreto!');
+    } else {
+        if (chute > numeroSecreto) {
+            exibirTextoNaTela('p', 'O número sercreto é menor!');
+        } else {
+            exibirTextoNaTela('p', 'O número secreto é maior!');
+        }
+    }
 }
 
 function gerarNumeroAleatorio() {
